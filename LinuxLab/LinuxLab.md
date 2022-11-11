@@ -14,7 +14,7 @@ para crear el archivo se utliliza el comando touch del siguiente modo:
 > touch file{1..2}.txt
 ```
 
-https://OriolOr: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@github.com/OriolOr/LemonCodeDevOpsLabs.git
+https://OriolOr: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@github.com/OriolOr/LemonCodeDevOpsLabs.git
 
 Ejercicio 2 : 
 
