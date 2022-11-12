@@ -8,10 +8,16 @@ Para crear el directorio con sus correspondinetes subdirectorios y archivos, uti
 > mkdir -p foo/{dummy,empty}
 ```
 
-para crear el archivo se utliliza el comando touch del siguiente modo: 
+para crear el archivo se utliliza el comando touch del siguiente modo, entrando dentro del directorio dummy con "cd foo/dummy": 
 
 ```
 > touch file{1..2}.txt
+```
+
+y añadimos el contenido en file2.txt con el siguiente comando
+
+```
+> echo "Me encanta la bash!!"> file2.txt 
 ```
 
 https://OriolOr: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@github.com/OriolOr/LemonCodeDevOpsLabs.git
@@ -27,3 +33,6 @@ Para volcar el contenido del archivo 1 al 2 realizamos el siguiente comando:
  ```
  > mv file2.txt empty
  ```
+
+
+ 
