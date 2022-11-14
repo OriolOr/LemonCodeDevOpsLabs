@@ -20,8 +20,6 @@ y añadimos el contenido en file2.txt con el siguiente comando
 > echo "Me encanta la bash!!"> file2.txt 
 ```
 
-https://OriolOr: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@github.com/OriolOr/LemonCodeDevOpsLabs.git
-
 Ejercicio 2 : 
 
 Para volcar el contenido del archivo 1 al 2 realizamos el siguiente comando: 

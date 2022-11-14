@@ -1,0 +1,39 @@
+version: "3.7"
+services:
+  some-mongo:
+    container_name: some-mongo
+    image: mongo
+    ports:
+      - "27017:27017"  
+    volumes:
+      - mongodata:/data/db   
+    networks: 
+      - lemoncode-challenge
+
+  backend :
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name : backend 
+    image : backend 
+    environment: 
+      - API_URI=http://backend:5000/api/topics
+    networks: 
+      - lemoncode-challenge
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile  
+    container_name: frontend
+    image : frontend
+    ports:
+      - "8080:3000"
+    networks: 
+      - lemoncode-challenge
+
+volumes: 
+    mongodata:
+networks: 
+  lemoncode-challenge:
+
