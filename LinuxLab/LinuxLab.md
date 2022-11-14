@@ -8,28 +8,29 @@ Para crear el directorio con sus correspondinetes subdirectorios y archivos, uti
 > mkdir -p foo/{dummy,empty}
 ```
 
-para crear el archivo se utliliza el comando touch del siguiente modo, entrando dentro del directorio dummy con "cd foo/dummy": 
+Para crear el archivo se utliliza el comando `touch` del siguiente modo, entrando al directorio donde queremos crear estos dos archivos mediante `cd`: 
 
 ```
+> cd foo dummy
 > touch file{1..2}.txt
 ```
 
-y añadimos el contenido en file2.txt con el siguiente comando
+y añadimos el contenido en `file1.txt` con el siguiente comando:
 
 ```
-> echo "Me encanta la bash!!"> file2.txt 
+> echo "Me encanta la bash!!"> file1.txt 
 ```
 
 Ejercicio 2 : 
 
-Para volcar el contenido del archivo 1 al 2 realizamos el siguiente comando: 
+Para volcar el contenido del archivo 1 al 2 utilizamos el comando `cat` del siguiente modo: 
  ```
  > cat file1.txt>>file2.txt
  ```
- Y con el siguiente comando se mueve al directorio empty: 
+ Y con el siguiente comando se mueve al directorio empty: ToDo
 
  ```
- > mv file2.txt empty
+ > mv file2.txt ../empty
  ```
 
 
