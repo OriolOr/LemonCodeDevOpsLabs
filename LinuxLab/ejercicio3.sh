@@ -15,5 +15,5 @@ fi
 cat file1.txt>>file2.txt
 
 #move to empty folder
-#mv file2.txt ../empty
+mv file2.txt ../empty
 
