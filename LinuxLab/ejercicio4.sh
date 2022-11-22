@@ -7,7 +7,7 @@ if [ $# -eq 2 ]; then
     
     #file parse
     nWords=$(curl -s $1 | grep -io $2 | wc -w);
-    nLine=$(grep -c $2 webFile.txt);
+    nLine=$(grep -w $2 -n webFile.txt| head -1| cut -d : -f 1);
 
     if [ $nWords -eq 1 ]; then
         echo "La palabra $2 aparece 1 vez"
