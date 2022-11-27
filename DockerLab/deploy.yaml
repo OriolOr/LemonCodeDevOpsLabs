@@ -3,6 +3,8 @@ services:
   some-mongo:
     container_name: some-mongo
     image: mongo
+    environment:
+      MONGO_INITDB_DATABASE: TopicstoreDb
     ports:
       - "27017:27017"  
     volumes:
