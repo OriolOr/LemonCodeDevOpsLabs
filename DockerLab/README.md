@@ -1,7 +1,7 @@
 
 #Laboratorio Docker
 
-En primer lugar deberemos crear los archivos ´DockerFile´ tanto en el directorio de frontend como en el de backend. Este ´Dockerfile´ contiene los pasos para construir nuestra imagen de docker que posteriormente sera utilizada dentro del ´docker-compose´ para crear nuestros contenedores.
+En primer lugar deberemos crear los archivos `DockerFile` tanto en el directorio de frontend como en el de backend. Este `Dockerfile` contiene los pasos para construir nuestra imagen de docker que posteriormente sera utilizada dentro del ´docker-compose´ para crear nuestros contenedores.
 
 Una vez tenemos el  archivo de docker-compose creado, para desplegar este deberemos movernos al directorio raiz y ejecutar el siguiente comando : 
 
