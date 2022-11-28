@@ -1,41 +1,41 @@
 version: "3.7"
+
 services:
   some-mongo:
     container_name: some-mongo
     image: mongo
     environment:
-      MONGO_INITDB_DATABASE: TopicstoreDb
+      - MONGO_INITDB_DATABASE=TopicstoreDb
     ports:
-      - "27017:27017"  
+      - "27017:27017"
     volumes:
-      - mongodata:/data/db   
-    networks: 
+      - mongodata:/data/db
+    networks:
       - lemoncode-challenge
 
-  backend :
-    build: 
+  backend:
+    build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name : backend 
-    image : backend 
-    environment: 
+    container_name: backend
+    image: backend
+    environment:
       - API_URI=http://backend:5000/api/topics
-    networks: 
+    networks:
       - lemoncode-challenge
 
   frontend:
     build:
       context: ./frontend
-      dockerfile: Dockerfile  
+      dockerfile: Dockerfile
     container_name: frontend
-    image : frontend
+    image: frontend
     ports:
       - "8080:3000"
-    networks: 
+    networks:
       - lemoncode-challenge
 
-volumes: 
-    mongodata:
-networks: 
+volumes:
+  mongodata:
+networks:
   lemoncode-challenge:
-
