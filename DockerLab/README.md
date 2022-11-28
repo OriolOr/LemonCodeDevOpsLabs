@@ -13,7 +13,7 @@ Una vez tenemos el  archivo de docker-compose creado, para desplegar este debere
 
 una vez desplegado comprobamos que todos los contenedores estan activos desde la applicacion de docker destop: 
 
-![image info](/pics-md/ejercicio2-0.png)
+![image info](pics-md/ejercicio2-0.png)
 
 Para comprobar que todos los contenedores de la red estan bien comunicados añadimos desde un cliente de mongo un seguido de documentos dentro de la coleccion Topics del siguiente modo : 
 
