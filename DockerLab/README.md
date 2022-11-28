@@ -25,8 +25,7 @@ Desde el navegador accediendo a `http://localhost:8080` se deberia ver toda la i
 
 Gracias al volumen que hemos creado para el contenedor `some-mongo`podemos persistir los datos que contiene la coleccion Topics aunque los contenedores se paren.
 
-Una vez esta todo desplegado si queremos parar algun contenedor utilizamos el siguiente comando 
-
+Una vez esta todo desplegado, si queremos parar algun contenedor utilizamos el siguiente comando :
 ```
 docker stop {container-id}
 ```
@@ -43,9 +42,8 @@ Por último si queremos eliminar los contenedores realizamos el siguiente comand
 ```
 docker rm frontend
 ```
-o
+o por el contrario si queremos eliminar todos los contenedores: 
 ```
 docker rm {ps -a -q}
 ```
 
-si queremos eliminar todos los contenedores.
