@@ -1,7 +1,12 @@
 # Laboratorio Docker Ejercicio 1
 
-En primer lugar debemos construir tanto las imagernes de frontend como la de backend. Estas estan dentro de cada directorio tanto de frontend como de backend
-
+En primer lugar debemos construir tanto las imagernes de frontend como la de backend. Estas estan dentro de cada directorio tanto de frontend como de backend : 
+```
+docker build -t backend-image . 
+```
+```
+docker build -t frontend-image . 
+```
 Una vez estan creados estos archivos, creamos la red `lemoncode-challenge` con el siguiente comando: 
 
 ```
@@ -20,13 +25,13 @@ docker run -d --name some-mongo -p 27017:27017 --network lemoncode-challenge -v 
 
 Para el backend, necesitamos que este tenga mapeado el puerto `5000` con el siguiente comando : 
 ```
-docker run -d --name backend -p 5000:5000 --network lenmoncode-challenge {nombre de la imagen de backend}
+docker run -d --name backend -p 5000:5000 --network lenmoncode-challenge backend-image
 ```
 
-Para el frontend, debemos mapear el puerto `8080` : 
+Para el frontend, debemos mapear el puerto `8080` al puerto `3000` del contenedor : 
 
 ```
-docker run -d --name frontend -p 8080:8080 --network lenmoncode-challenge {nombre de la imagen del frontend}
+docker run -d --name frontend -p 8080:3000 --network lenmoncode-challenge frontend-image
 ```
 
 FInalmente una vez tenemos todos los containers montados verificamos que toda funciona correctamente,En primer lugar creamos una coleccioón llamada `TopicsDb y añadimos varios registros
