@@ -5,7 +5,7 @@ En primer lugar debemos construir tanto las imagernes de frontend como la de bac
 docker build -t backend . 
 ```
 ```
-docker build -t frontend. 
+docker build -t frontend . 
 ```
 
 En la app de docker vemos como aparecen las imagenes creadas
