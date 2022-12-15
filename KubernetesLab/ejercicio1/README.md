@@ -4,5 +4,5 @@
 
 Para este primer ejercicio, debemos pushear la imagen de docker de nuestro proyecto a dockerhub, con tal de que nuestros contenedores puedan hacer pull de esta imagen. 
 
+![image info](pics-md/ejercicio1-0.png)
 
-Seguidamente pasamos a crear los archivos 
