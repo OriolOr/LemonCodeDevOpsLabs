@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: todo-app
+  namespace: ejercicio1
 spec:
   selector:
     matchLabels:
@@ -16,3 +17,6 @@ spec:
         image: oriolors/lc-todo-monolith
         ports:
         - containerPort: 3000
+        envFrom:
+        - configMapRef:
+            name: env-todo-app
