@@ -17,6 +17,6 @@ Una vez nuestra imagen de docker esta publicada en el hub de docker, procedemos 
 
  ## Paso 2. Acceder a todo-app desde fuera del clúster
 
- Una vez tenemos nuestro deployment funcionand, necesitamos que este sea accesible desde fuera del cluster , y para ello creamos un service de tipo load balancer del siguiente modo: 
+ Una vez tenemos nuestro deployment funcionando, necesitamos que este sea accesible desde fuera del cluster , y para ello creamos un service de tipo load balancer del siguiente modo: 
 
- 
+
