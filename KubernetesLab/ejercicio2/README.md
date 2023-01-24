@@ -2,7 +2,7 @@
 
 ### Ejercicio 2. Monolito.
 
-Para este segundo ejercicio, nos basaremos tambien en la misma imagen que en el ejericico 1.
+Para este segundo ejercicio, construimos nuestra imagen de docker del mismo modo que hemos hecho e la imagen 1 , en este caso la imagen se llamará `oriolors/todoapp-pg`
 
  ## Paso 1. Crear una capa de persistencia de datos
 
@@ -12,6 +12,9 @@ Para este segundo ejercicio, nos basaremos tambien en la misma imagen que en el 
  Storage File
  ```
 
-
+ ```
+ Persistence Volume
+ ```
+ 
   ## Paso 2. Crear todo-app
   ## Paso 3. Acceder a todo-app desde fuera del clúster
