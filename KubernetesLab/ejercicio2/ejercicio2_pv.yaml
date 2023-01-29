@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: pvtodoapp
+  name: pvtodoapp-pgs
 spec:
-  storageClassName: sc  
+  storageClassName: sc-todoapp-pg 
   accessModes:
     - ReadWriteOnce
   capacity:
     storage: 1Gi
   hostPath:
-    path: /data/pvtodoapp/
+    path: /data/pvtodoapp-pgs/
