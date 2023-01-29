@@ -15,6 +15,15 @@ Para este segundo ejercicio, construimos nuestra imagen de docker del mismo modo
  ```
  Persistence Volume
  ```
+
+ Una vez todos los archivos han sido creados, los aplicamos 
  
-  ## Paso 2. Crear todo-app
+ ```
+ k apply -f . 
+ ```
+ y comprovamos que todos los elementos se han generado correctamente  : 
+
+ 
+ 
+  ## Pasob2. Crear todo-app
   ## Paso 3. Acceder a todo-app desde fuera del clúster

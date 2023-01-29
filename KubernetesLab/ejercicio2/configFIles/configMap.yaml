@@ -5,4 +5,4 @@ metadata:
   labels:
     app: myapplication
 data:
-  my-key: my-value
+  DB_NAME: my-value

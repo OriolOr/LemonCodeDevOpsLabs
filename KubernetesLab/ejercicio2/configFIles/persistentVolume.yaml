@@ -3,7 +3,7 @@ kind: PersistentVolume
 metadata:
   name: pvtodoapp-pgs
 spec:
-  storageClassName: sc-todoapp-pg 
+  storageClassName: sc
   accessModes:
     - ReadWriteOnce
   capacity:

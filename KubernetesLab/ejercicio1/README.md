@@ -52,7 +52,7 @@ spec:
 
 ```
 
-Una vez creado el archivo de deployment, aplicamos este mediante la instruccion `kubectl apply -f ejercicio1_deploy.yaml` desde el directorio donde esten nuestros archivos de configuración del cluster, y mediante las instrucciones `kubectl get pods` y  `kubectl get deploy` podremos ver nuestros pods y deployments creados, en nuestro caso estos estan funcionando correctamente: 
+Una vez creado el archivo de deployment, aplicamos este mediante la instruccion `kubectl apply -f deploy.yaml` desde el directorio donde esten nuestros archivos de configuración del cluster, y mediante las instrucciones `kubectl get pods` y  `kubectl get deploy` podremos ver nuestros pods y deployments creados, en nuestro caso estos estan funcionando correctamente: 
 
 ![image info](pics-md/ejercicio1-1.png)
 
@@ -84,7 +84,7 @@ type: LoadBalancer
 
 ```
 
-Y Applicamos este archivo mediante `kubectl apply -f ejercicio1_loadbalancer.yaml`
+Y Applicamos este archivo mediante `kubectl apply -f loadbalancer.yaml`
 
 Una vez creado el servicio de `load-balancer`, mediante el comando `mikube tunnel` resolvemos una direccion ip para acceder a nuestro cluster desde fuera del cluster.
 
