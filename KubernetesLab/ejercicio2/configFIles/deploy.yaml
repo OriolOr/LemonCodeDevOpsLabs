@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: todoapp
+  name: todo-app
 spec:
   selector:
     matchLabels:
-      app: todoapp
+      app: todo-app
   template:
     metadata:
       labels:
-        app: todoapp
+        app: todo-app
     spec:
       containers:
-      - name: todoapp
+      - name: todo-app
         image: oriolors/todoapp-pg
         resources:
           limits:
