@@ -5,14 +5,14 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: todo-app
+      app: todo-app-pg
   template:
     metadata:
       labels:
-        app: todo-app
+        app: todo-app-pg
     spec:
       containers:
-      - name: todo-app
+      - name: todo-app-pg
         image: oriolors/todoapp-pg
         resources:
           limits:
