@@ -2,7 +2,9 @@
 
 ### Ejercicio 2. Monolito.
 
-Para este segundo ejercicio, construimos nuestra imagen de docker del mismo modo que hemos hecho e la imagen 1 , en este caso la imagen se llamará `oriolors/todoapp-pg`
+## Paso 0. Publicar DockerImage para monolith todo-app
+
+Para este segundo ejercicio, construimos nuestra imagen de docker del mismo modo que hemos hecho e la imagen 1 , en este caso la imagen se llamará `oriolors/todoapp-pg` utilizando el codigo que hay dentro del proyecto `todo-app` en el directoro `monolith`.
 
  ## Paso 1. Crear una capa de persistencia de datos
 
@@ -20,6 +22,8 @@ Para este segundo ejercicio, construimos nuestra imagen de docker del mismo modo
 
  ```
 
+Creamos tambien el `persistent volume` referenciando al storage class anterior : 
+ 
  ```
 
     apiVersion: v1
@@ -36,18 +40,76 @@ Para este segundo ejercicio, construimos nuestra imagen de docker del mismo modo
         path: /data/pvtodoapp-pgs/
 
  ```
+Con todo esto creamos el `statefulset`:
 
- Una vez todos los archivos han sido creados, los aplicamos 
+ ```
+
+    apiVersion: apps/v1
+    kind: StatefulSet
+    metadata:
+    name: postgres-db-statfullset
+    spec:
+    selector:
+        matchLabels:
+        app: postgres-db
+    serviceName: postgres-db-svc
+    replicas: 1
+    template:
+        metadata:
+        labels:
+            app: postgres-db
+        spec:
+        containers:
+        - name: postgres-db
+            image: posgres:10.4
+            ports:
+            - containerPort: 5432
+            volumeMounts:
+            - name: pvclaim-postgres
+            mountPath: /var/lib/postgresql/data
+    volumeClaimTemplates:
+    - metadata:
+        name: pvclaim-postgres
+        spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+            requests:
+            storage: 1Gi
+
+ ```
+
+FInalmente creamos el servicio de tipo cluster-ip  que permitira a los pods del deploy de `todo-app` acceder a nuestra base de datos:
+ ```
+ 
+    apiVersion: v1
+    kind: Service
+    metadata:
+    name: postgres-db-service
+    spec:
+    selector:
+        app: postgres-db
+    ports:
+    - port: 5432
+        targetPort: 5432
+
+ ```
+
+ Una vez todos los archivos han sido creados, los aplicamos:
  
  ```
  k apply -f . 
  ```
- y comprovamos que todos los elementos se han generado correctamente  : 
+
+ Accedemos a la base de datos y añadimos los datos necesarios :
+
+ ``` $ kubectl exec -i -t postgres-db-statfullset-0 -- psql -U postgres < todos_db.sql ```
+  
+ y comprovamos que todos los elementos se han generado correctamente :
 
  
   ## Paso 2. Crear todo-app
 
-  Una vez esta configurada la base de datos , realizamos de un modod parecido al ejericio 1 un el `deploy.yaml` , en este utilizamos la imagen creada inicialmente 
+  Una vez esta configurada la base de datos , realizamos de un modo parecido al ejericio 1 un el `deploy.yaml` , en este utilizamos la imagen creada en el paso 0. 
 
   ```
 
@@ -101,3 +163,5 @@ Para este segundo ejercicio, construimos nuestra imagen de docker del mismo modo
  una vez aplicado volvemos al terminal anterior y volvemos a cargar la lista de servicios mediante la instruccion `kubectl get svc` donde ya podemos ver la ip que se ha asignado a nuestro servicio. 
 
  Copiamos la ip en el navegador y vemos como la aplicaion se ha desploegado correctamente y contiene todos los campos almacenados en la base de datos. 
+
+ [image]
