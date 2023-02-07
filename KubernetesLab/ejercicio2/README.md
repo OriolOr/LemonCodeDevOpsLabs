@@ -22,7 +22,7 @@ Para este segundo ejercicio, construimos nuestra imagen de docker del mismo modo
 
  ```
 
-Creamos tambien el `persistent volume` referenciando al storage class anterior : 
+Creamos tambien el `persistent volume` referenciando al storage class anterior: 
  
  ```
 
@@ -78,7 +78,8 @@ Con todo esto creamos el `statefulset`:
 
  ```
 
-FInalmente creamos el servicio de tipo cluster-ip  que permitira a los pods del deploy de `todo-app` acceder a nuestra base de datos:
+Finalmente creamos el servicio de tipo `cluster-ip` que permitirá a los pods del deploy de `todo-app` acceder a nuestra base de datos:
+
  ```
  
     apiVersion: v1
@@ -97,15 +98,17 @@ FInalmente creamos el servicio de tipo cluster-ip  que permitira a los pods del 
  Una vez todos los archivos han sido creados, los aplicamos:
  
  ```
- k apply -f . 
+  $ k apply -f . 
  ```
 
- Accedemos a la base de datos y añadimos los datos necesarios :
+ Accedemos a la base de datos y añadimos los datos necesarios:
 
  ``` $ kubectl exec -i -t postgres-db-statfullset-0 -- psql -U postgres < todos_db.sql ```
   
- y comprovamos que todos los elementos se han generado correctamente :
+ y comprovamos que todos los elementos se han generado correctamente:
 
+
+//snapshot de la base de datos
  
   ## Paso 2. Crear todo-app
 
