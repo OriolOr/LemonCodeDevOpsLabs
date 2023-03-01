@@ -3,10 +3,11 @@ kind: StatefulSet
 metadata:
   name: postgres-db-statfullset
 spec:
+
   selector:
     matchLabels:
       app: postgres-db
-  serviceName: postgres-db-svc
+  serviceName: postgres-db-service
   replicas: 1
   template:
     metadata:
@@ -15,9 +16,10 @@ spec:
     spec:
       containers:
       - name: postgres-db
-        image: posgres:10.4
+        image: postgres:10.4
         ports:
         - containerPort: 5432
+          name: db
         volumeMounts:
         - name: pvclaim-postgres
           mountPath: /var/lib/postgresql/data
@@ -25,7 +27,8 @@ spec:
   - metadata:
       name: pvclaim-postgres
     spec:
-      accessModes: [ "ReadWriteOnce" ]
+      accessModes: ["ReadWriteOnce"]
       resources:
         requests:
           storage: 1Gi
+      storageClassName: storageclass-postgres-db
