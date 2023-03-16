@@ -15,7 +15,7 @@ Para este segundo ejercicio, construimos nuestra imagen de docker del mismo modo
     apiVersion: storage.k8s.io/v1
     kind: StorageClass
     metadata:
-    name: sc
+      name: storageclass-postgres-db
     provisioner: k8s.io/minikube-hostpath
     reclaimPolicy: Delete
     volumeBindingMode: Immediate
@@ -40,7 +40,7 @@ Creamos tambien el `persistent volume` referenciando al storage class anterior:
         path: /data/pvtodoapp-pgs/
 
  ```
-Con todo esto creamos el `statefulset`:
+Creamos el `statefulset`:
 
  ```
 
