@@ -161,10 +161,10 @@ Finalmente creamos el servicio de tipo `cluster-ip` que permitirá a los pods de
 
  ```
 
- una vez creado, aplicamos este archivo. abrimos un nuevo terminal y aplicamos el comando `minikube tunel`
+ Una vez creado, aplicamos este archivo. abrimos un nuevo terminal y aplicamos el comando `minikube tunel`
 
- una vez aplicado volvemos al terminal anterior y volvemos a cargar la lista de servicios mediante la instruccion `kubectl get svc` donde ya podemos ver la ip que se ha asignado a nuestro servicio. 
+ una vez aplicado volvemos al terminal anterior y volvemos a cargar la lista de servicios mediante la instruccion `kubectl get svc` donde ya podemos ver la ip que se ha asignado a nuestro servicio.
 
- Copiamos la ip en el navegador y vemos como la aplicaion se ha desploegado correctamente y contiene todos los campos almacenados en la base de datos. 
+ Copiamos la ip en el navegador y vemos como la aplicaion se ha desploegado correctamente y contiene todos los campos almacenados en la base de datos.
 
  [image]

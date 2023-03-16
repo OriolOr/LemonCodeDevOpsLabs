@@ -90,7 +90,6 @@ Una vez creado el servicio de `load-balancer`, mediante el comando `mikube tunne
 
 ![image info](pics-md/ejercicio1-4.png)
 
-Copiamos esta dirección `10.109.152.13:3000` en un navegador y comprovamos que nuestra todo-app es ahora accesible mediante esta Ip: 
+Copiamos esta dirección `10.109.152.13:3000` en un navegador y comprovamos que nuestra todo-app es ahora accesible mediante esta Ip. 
 
 ![image info](pics-md/ejercicio1-5.png)
-
