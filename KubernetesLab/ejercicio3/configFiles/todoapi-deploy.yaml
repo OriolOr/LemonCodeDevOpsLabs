@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: todo-front
+  name: todo-api
 spec:
   selector:
     matchLabels:
-      app: todo-front
+      app: todo-api
   template:
     metadata:
       labels:
-        app: todo-front
+        app: todo-api
     spec:
       containers:
-      - name: todo-front
-        image: oriolors/todo-front
+      - name: todo-api
+        image: oriolors/todo-api:latest
         resources:
           limits:
             memory: "128Mi"
             cpu: "500m"
         ports:
-        - containerPort: 80
+        - containerPort: 3000
