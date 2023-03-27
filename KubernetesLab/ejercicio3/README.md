@@ -110,10 +110,47 @@ todo-front   1/1     1            1           55s
 ```
 ## Paso 3. Ingress
 
-Ahora que ya tenemos los ambos nodos funcionando pasamos a incorporar ingress a nuestro setup.
+Ahora que ya tenemos ambos nodos corriendo pasamos a incorporar ingress a nuestro setup.
 
 instalamos el addon de ingress mediante el comando `minikube addons enable ingress`. Una vez instalado creamos el archivo de configuracion de ingress tal que asi : 
 
+
 ```
-ingress file
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: todo-ingress
+  labels:
+    name: todo-ingress
+spec:
+  rules:
+  - host: ingress.local
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/api"
+        backend:
+          service:
+            name: todo-api-service 
+            port: 
+              number: 3000
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: todo-front-service 
+            port: 
+              number: 80
+
+
+```
+
+Finalmente comprovamos que nuestro host tiene asignado una ip y esta es accesible desde fuera del cluster : 
+
+```
+roche@roche-VM:~/KubernetesLab/Ejercicio3$ k get ingress
+NAME           CLASS   HOSTS           ADDRESS        PORTS   AGE
+todo-ingress   nginx   ingress.local   192.168.49.2   80      9d
+
 ```
