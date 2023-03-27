@@ -165,6 +165,14 @@ Finalmente creamos el servicio de tipo `cluster-ip` que permitirá a los pods de
 
  una vez aplicado volvemos al terminal anterior y volvemos a cargar la lista de servicios mediante la instruccion `kubectl get svc` donde ya podemos ver la ip que se ha asignado a nuestro servicio.
 
+```
+
+NAME                   TYPE           CLUSTER-IP      EXTERNAL-IP     PORT(S)          AGE
+kubernetes             ClusterIP      10.96.0.1       <none>          443/TCP          9d
+postgres-db-service    ClusterIP      10.99.180.225   <none>          5432/TCP         47s
+todoapp-loadbalancer   LoadBalancer   10.101.198.16   10.101.198.16   3000:30179/TCP   47s
+
+```
  Copiamos la ip en el navegador y vemos como la aplicaion se ha desploegado correctamente y contiene todos los campos almacenados en la base de datos.
 
- [image]
+![image info](pics-md/ejercicio2-0.png)
